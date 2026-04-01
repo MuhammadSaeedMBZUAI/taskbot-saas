@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Loader2, Zap } from "lucide-react";
 
 export default function UpgradeButton() {
   const [loading, setLoading] = useState(false);
@@ -17,9 +18,10 @@ export default function UpgradeButton() {
     <button
       onClick={handleUpgrade}
       disabled={loading}
-      className="px-4 py-2 bg-green-500 hover:bg-green-400 disabled:opacity-50 text-black font-semibold rounded-lg text-sm transition"
+      className="flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-400 disabled:opacity-50 text-black font-semibold rounded-lg text-sm transition-colors"
     >
-      {loading ? "Redirecting..." : "Upgrade to Pro – $9/mo"}
+      {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Zap className="w-4 h-4" />}
+      {loading ? "Redirecting..." : "Upgrade to Pro"}
     </button>
   );
 }
